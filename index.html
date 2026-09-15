@@ -1337,17 +1337,17 @@ html&gt;body{padding:0}&lt;/style&gt;
 &lt;/script&gt;
 &lt;div id=&quot;food-system-web&quot; aria-label=&quot;Interactive web of connections in the food system&quot;&gt;
   &lt;style&gt;
-    #food-system-web{color:var(--foreground);font-family:inherit}
+    #food-system-web{color:#000;font-family:inherit}
     #food-system-web .fs-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:.65rem}
     #food-system-web .fs-head h2{margin:0;font-weight:500}
-    #food-system-web .fs-head p{margin:0;color:var(--muted-foreground)}
+    #food-system-web .fs-head p{margin:0;color:#000}
     #food-system-web .fs-map{position:relative;width:100%;aspect-ratio:10/8;min-height:590px;overflow:hidden}
     #food-system-web .fs-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-    #food-system-web .fs-edge{stroke:var(--border);stroke-width:1.2;opacity:.62;transition:opacity .18s,stroke-width .18s,stroke .18s}
-    #food-system-web .fs-edge.flow{stroke:var(--muted-foreground);stroke-width:2;opacity:.8}
-    #food-system-web .fs-edge.hot{stroke:var(--foreground);stroke-width:2.5;opacity:1}
-    #food-system-web .fs-edge.dim{opacity:.1}
-    #food-system-web .fs-node{position:absolute;transform:translate(-50%,-50%);min-width:4.8rem;max-width:7.2rem;padding:.34rem .48rem;border:1px solid transparent;border-radius:999px;color:var(--foreground);font:inherit;font-weight:400;line-height:1.12;text-align:center;box-shadow:none;transition:opacity .18s,transform .18s,background .18s}
+    #food-system-web .fs-edge{stroke:#8A8A8A;stroke-width:1.6;opacity:.55;transition:opacity .18s,stroke-width .18s,stroke .18s}
+    #food-system-web .fs-edge.flow{stroke:#707070;stroke-width:2.4;opacity:.72}
+    #food-system-web .fs-edge.hot{stroke:#4F4F4F;stroke-width:2.8;opacity:.95}
+    #food-system-web .fs-edge.dim{opacity:.16}
+    #food-system-web .fs-node{position:absolute;transform:translate(-50%,-50%);min-width:4.8rem;max-width:7.2rem;padding:.34rem .48rem;border:1px solid transparent;border-radius:999px;color:#000;font:inherit;font-weight:400;line-height:1.12;text-align:center;box-shadow:none;transition:opacity .18s,transform .18s,background .18s}
     #food-system-web .fs-node:hover,#food-system-web .fs-node:focus-visible{transform:translate(-50%,-50%) scale(1.045)}
     #food-system-web .fs-node.anchor{min-width:7.8rem;max-width:8.5rem;padding:.65rem .55rem;font-weight:500;border-radius:1.1rem}
     #food-system-web .fs-node.input{background:color-mix(in srgb,var(--viz-series-1) 17%,var(--background))}
@@ -1355,13 +1355,14 @@ html&gt;body{padding:0}&lt;/style&gt;
     #food-system-web .fs-node.access{background:color-mix(in srgb,var(--viz-series-3) 17%,var(--background))}
     #food-system-web .fs-node.meal{background:color-mix(in srgb,var(--viz-series-4) 17%,var(--background))}
     #food-system-web .fs-node.system{background:color-mix(in srgb,var(--viz-series-5) 15%,var(--background))}
-    #food-system-web .fs-node.selected{background:var(--primary);color:var(--primary-foreground);transform:translate(-50%,-50%) scale(1.06)}
+    #food-system-web .fs-node.selected{background:var(--primary);color:#000;transform:translate(-50%,-50%) scale(1.06)}
     #food-system-web .fs-node.dim{opacity:.28}
     #food-system-web .fs-detail{margin-top:.7rem;display:grid;grid-template-columns:minmax(9rem,.7fr) 2.3fr;gap:1rem;align-items:start}
     #food-system-web .fs-detail h3{margin:.05rem 0 .25rem;font-weight:500}
-    #food-system-web .fs-detail p{margin:.1rem 0;color:var(--card-foreground)}
-    #food-system-web .fs-detail .text-small{color:var(--muted-foreground)}
-    #food-system-web .fs-legend{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:.6rem;color:var(--muted-foreground)}
+    #food-system-web .fs-detail p{margin:.1rem 0;color:#000}
+    #food-system-web .fs-detail .text-small{color:#000}
+    #food-system-web .fs-legend{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:.6rem;color:#000}
+    #food-system-web .fs-note{margin:.45rem 0 0;color:#000}
     #food-system-web .fs-key{display:inline-flex;align-items:center;gap:.3rem}
     #food-system-web .fs-dot{width:.65rem;height:.65rem;border-radius:50%;display:inline-block}
     #food-system-web .fs-dot.input{background:var(--viz-series-1)}
@@ -1383,11 +1384,12 @@ html&gt;body{padding:0}&lt;/style&gt;
   &lt;div class=&quot;fs-map&quot; id=&quot;fs-map&quot; role=&quot;group&quot; aria-label=&quot;Food system network&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;card fs-detail&quot; aria-live=&quot;polite&quot;&gt;
     &lt;div&gt;&lt;h3 id=&quot;fs-detail-title&quot;&gt;The food system&lt;/h3&gt;&lt;div class=&quot;text-small&quot; id=&quot;fs-detail-type&quot;&gt;Framework check&lt;/div&gt;&lt;/div&gt;
-    &lt;div&gt;&lt;p id=&quot;fs-detail-text&quot;&gt;The map now includes food availability, access, use, stability, agency, and sustainability. It also connects nutrition with diets, care, health, water, and sanitation.&lt;/p&gt;&lt;p class=&quot;text-small&quot; id=&quot;fs-detail-example&quot;&gt;Select a label to trace its connections. Select empty space to restore the full web.&lt;/p&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;p id=&quot;fs-detail-text&quot;&gt;The map now includes food availability, access, utilization, stability, agency, and sustainability. It also connects nutrition with diets, care, health, water, and sanitation.&lt;/p&gt;&lt;p class=&quot;text-small&quot; id=&quot;fs-detail-example&quot;&gt;Select a label to trace its connections. Select empty space to restore the full web.&lt;/p&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;fs-legend text-small&quot; aria-label=&quot;Node categories&quot;&gt;
     &lt;span class=&quot;fs-key&quot;&gt;&lt;span class=&quot;fs-dot input&quot;&gt;&lt;/span&gt;Production&lt;/span&gt;&lt;span class=&quot;fs-key&quot;&gt;&lt;span class=&quot;fs-dot move&quot;&gt;&lt;/span&gt;Storage and movement&lt;/span&gt;&lt;span class=&quot;fs-key&quot;&gt;&lt;span class=&quot;fs-dot access&quot;&gt;&lt;/span&gt;Markets and access&lt;/span&gt;&lt;span class=&quot;fs-key&quot;&gt;&lt;span class=&quot;fs-dot meal&quot;&gt;&lt;/span&gt;Meals&lt;/span&gt;&lt;span class=&quot;fs-key&quot;&gt;&lt;span class=&quot;fs-dot system&quot;&gt;&lt;/span&gt;Cross-system forces&lt;/span&gt;
   &lt;/div&gt;
+  &lt;p class=&quot;fs-note text-small&quot;&gt;Food systems vary across places and over time. This map shows selected connections rather than every possible relationship.&lt;/p&gt;
   &lt;script&gt;
   (()=&gt;{
     const root=document.getElementById(&#x27;food-system-web&#x27;), map=root.querySelector(&#x27;#fs-map&#x27;);
@@ -1442,7 +1444,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     edges.forEach(([a,b,k])=&gt;{const e=document.createElementNS(svg.namespaceURI,&#x27;line&#x27;);e.setAttribute(&#x27;x1&#x27;,byId[a].x*10);e.setAttribute(&#x27;y1&#x27;,byId[a].y*8);e.setAttribute(&#x27;x2&#x27;,byId[b].x*10);e.setAttribute(&#x27;y2&#x27;,byId[b].y*8);e.setAttribute(&#x27;class&#x27;,&#x27;fs-edge &#x27;+(k||&#x27;&#x27;));e.dataset.a=a;e.dataset.b=b;svg.appendChild(e)});
     nodes.forEach(n=&gt;{const b=document.createElement(&#x27;button&#x27;);b.type=&#x27;button&#x27;;b.className=&#x27;fs-node cursor-interaction &#x27;+n.cat+(n.type===&#x27;Anchor stage&#x27;?&#x27; anchor&#x27;:&#x27;&#x27;);b.style.left=n.x+&#x27;%&#x27;;b.style.top=n.y+&#x27;%&#x27;;b.textContent=n.label;b.dataset.id=n.id;b.setAttribute(&#x27;aria-pressed&#x27;,&#x27;false&#x27;);b.setAttribute(&#x27;aria-label&#x27;,n.label+&#x27;. Select to trace its food-system connections.&#x27;);map.appendChild(b)});
     const title=root.querySelector(&#x27;#fs-detail-title&#x27;),type=root.querySelector(&#x27;#fs-detail-type&#x27;),text=root.querySelector(&#x27;#fs-detail-text&#x27;),example=root.querySelector(&#x27;#fs-detail-example&#x27;);
-    const reset=()=&gt;{map.querySelectorAll(&#x27;.fs-node&#x27;).forEach(el=&gt;{el.classList.remove(&#x27;selected&#x27;,&#x27;dim&#x27;);el.setAttribute(&#x27;aria-pressed&#x27;,&#x27;false&#x27;)});svg.querySelectorAll(&#x27;.fs-edge&#x27;).forEach(el=&gt;el.classList.remove(&#x27;hot&#x27;,&#x27;dim&#x27;));title.textContent=&#x27;The food system&#x27;;type.textContent=&#x27;Framework check&#x27;;text.textContent=&#x27;The map includes food availability, access, use, stability, agency, and sustainability. It also connects nutrition with diets, care, health, water, and sanitation.&#x27;;example.textContent=&#x27;Select a label to trace its connections. Select empty space to restore the full web.&#x27;};
+    const reset=()=&gt;{map.querySelectorAll(&#x27;.fs-node&#x27;).forEach(el=&gt;{el.classList.remove(&#x27;selected&#x27;,&#x27;dim&#x27;);el.setAttribute(&#x27;aria-pressed&#x27;,&#x27;false&#x27;)});svg.querySelectorAll(&#x27;.fs-edge&#x27;).forEach(el=&gt;el.classList.remove(&#x27;hot&#x27;,&#x27;dim&#x27;));title.textContent=&#x27;The food system&#x27;;type.textContent=&#x27;Framework check&#x27;;text.textContent=&#x27;The map includes food availability, access, utilization, stability, agency, and sustainability. It also connects nutrition with diets, care, health, water, and sanitation.&#x27;;example.textContent=&#x27;Select a label to trace its connections. Select empty space to restore the full web.&#x27;};
     map.addEventListener(&#x27;click&#x27;,ev=&gt;{const btn=ev.target.closest(&#x27;.fs-node&#x27;);if(!btn){reset();return}const id=btn.dataset.id,n=byId[id],linked=new Set([id]);edges.forEach(([a,b])=&gt;{if(a===id)linked.add(b);if(b===id)linked.add(a)});map.querySelectorAll(&#x27;.fs-node&#x27;).forEach(el=&gt;{const chosen=el.dataset.id===id;el.classList.toggle(&#x27;selected&#x27;,chosen);el.classList.toggle(&#x27;dim&#x27;,!linked.has(el.dataset.id));el.setAttribute(&#x27;aria-pressed&#x27;,chosen?&#x27;true&#x27;:&#x27;false&#x27;)});svg.querySelectorAll(&#x27;.fs-edge&#x27;).forEach(el=&gt;{const on=el.dataset.a===id||el.dataset.b===id;el.classList.toggle(&#x27;hot&#x27;,on);el.classList.toggle(&#x27;dim&#x27;,!on)});title.textContent=n.label;type.textContent=n.type;text.textContent=n.text;example.textContent=&#x27;Example: &#x27;+n.example});
   })();
   &lt;/script&gt;
